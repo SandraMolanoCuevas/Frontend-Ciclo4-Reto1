@@ -35,7 +35,7 @@ function validar() {
       }
       console.log(response);
       console.log("Bienvenido");
-      alert("Acabas de iniciar sesion");
+      alert("Bienvenido(a) Acabas de iniciar sesion");
       window.location.reload()
     },
 
