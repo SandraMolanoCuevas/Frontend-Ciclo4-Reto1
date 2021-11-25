@@ -59,7 +59,7 @@ function validar(){
         dataType: 'JSON',
         data: JSON.stringify(datos),
 
-        url: "http://localhost:8080/api/user/new",
+        url: "http://129.151.105.93/api/user/new",
 
 
         success: function (response) {

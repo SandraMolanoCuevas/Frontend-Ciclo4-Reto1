@@ -1,23 +1,23 @@
 function validar() {
-  const usuario = document.getElementById('usuario');
-  const clave = document.getElementById('clave');
+  const email = document.getElementById('email');
+  const password = document.getElementById('password');
 
-  if (usuario.value.length == 0) {
-    alert("Ingrese un usuario")
-    usuario.focus()
+  if (email.value.length == 0) {
+    alert("Ingrese su correo electronico")
+    email.focus()
     return 0;
   }
 
-  if (clave.value.length == 0) {
+  if (password.value.length == 0) {
     alert("Ingrese una contraseña")
-    clave.focus()
+    password.focus()
     return 0;
 
   }
 
   let credentials = {
-    usuario: $("#usuario").val(),
-    clave: $("#clave").val()
+    email: $("#email").val(),
+    password: $("#password").val()
   };
 
   $.ajax({
@@ -26,7 +26,7 @@ function validar() {
     dataType: 'JSON',
     // data: JSON.stringify(credentials),
 
-    url: "http://localhost:8080/api/user/" + credentials.usuario + "/" + credentials.clave,
+    url: "http://129.151.105.93/api/user/" + credentials.email + "/" + credentials.password,
 
     success: function (response) {
       if (response.name == 'NO DEFINIDO') {
@@ -34,17 +34,17 @@ function validar() {
         return;
       }
       console.log(response);
-      console.log("Bienvenido");
-      alert("Bienvenido(a) Acabas de iniciar sesion");
+      console.log("True");
+      alert("Bienvenido acabas de iniciar sesion");
       window.location.reload()
     },
 
     error: function (jqXHR, textStatus, errorThrown) {
       window.location.reload()
+      console.log("False");
       alert("no existe usuario");
     }
   }
   );
-
 
 }
